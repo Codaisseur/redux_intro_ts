@@ -44,3 +44,19 @@ test("SUBTRACT should work as expected", () => {
   });
   expect(store.getState()).toBe(0);
 });
+
+test("MULTIPLY should work as expected", () => {
+  const store = createStore(myCountingReducer);
+
+  store.dispatch({
+    type: "ADD",
+    payload: 24,
+  });
+  expect(store.getState()).toBe(24);
+
+  store.dispatch({
+    type: "MULTIPLY",
+    payload: 3,
+  });
+  expect(store.getState()).toBe(72);
+});

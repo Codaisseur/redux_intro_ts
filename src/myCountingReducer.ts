@@ -3,7 +3,8 @@ const initialState = 0;
 
 type Action =
   | { type: "ADD"; payload: number }
-  | { type: "SUBTRACT"; payload: number };
+  | { type: "SUBTRACT"; payload: number }
+  | { type: "MULTIPLY"; payload: number };
 
 export function myCountingReducer(state = initialState, action: Action) {
   switch (action.type) {
@@ -12,6 +13,9 @@ export function myCountingReducer(state = initialState, action: Action) {
     }
     case "SUBTRACT": {
       return state - action.payload;
+    }
+    case "MULTIPLY": {
+      return state * action.payload;
     }
     default: {
       return state;

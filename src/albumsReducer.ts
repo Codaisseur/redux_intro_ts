@@ -5,7 +5,9 @@ type Album = {
   genre: string;
 };
 
-type Action = { type: "ADD_ALBUM"; payload: Album };
+type Action =
+  | { type: "ADD_ALBUM"; payload: Album }
+  | { type: "REMOVE_ALBUM"; payload: string };
 
 const initialState: Album[] = [];
 
@@ -14,6 +16,11 @@ export function albumsReducer(state = initialState, action: Action) {
     case "ADD_ALBUM": {
       // => Ask yourself: what is action.payload?
       return [...state, action.payload];
+    }
+    case "REMOVE_ALBUM": {
+      return state.filter((album) => {
+        return album.title !== action.payload;
+      });
     }
     default: {
       return state;

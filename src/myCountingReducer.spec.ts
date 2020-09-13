@@ -60,3 +60,23 @@ test("MULTIPLY should work as expected", () => {
   });
   expect(store.getState()).toBe(72);
 });
+
+test("RESET should work as expected", () => {
+  const store = createStore(myCountingReducer);
+
+  store.dispatch({
+    type: "ADD",
+    payload: 24,
+  });
+  expect(store.getState()).toBe(24);
+
+  store.dispatch({
+    type: "RESET",
+  });
+  expect(store.getState()).toBe(0);
+
+  store.dispatch({
+    type: "RESET",
+  });
+  expect(store.getState()).toBe(0);
+});

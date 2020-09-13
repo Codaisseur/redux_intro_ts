@@ -3,3 +3,4 @@
 3. Dispatching actions to the store, getting the store's state, and subscribing to updates from the store
 4. Added a new action type "SUBTRACT"
 5. Installed Jest and `ts-jest`
+6. Added tests for myCountingReducer

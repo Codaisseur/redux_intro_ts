@@ -7,3 +7,4 @@
 7. Added a new "MULTIPLY" action type, TDD-style
 8. Added a new "RESET" action type, TDD-style
 9. Object experiments..
+10. Added an "app reducer" and some tests for it

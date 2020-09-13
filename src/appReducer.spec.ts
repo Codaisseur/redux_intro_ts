@@ -76,3 +76,31 @@ test("Updating the logged in user works", () => {
     email: "rein@codaisseur.com",
   });
 });
+
+test("Switching to and from dark mode works", () => {
+  const store = createStore(appReducer);
+
+  expect(store.getState().darkMode).toBe(false);
+
+  store.dispatch({
+    type: "TOGGLE_DARK_MODE",
+  });
+
+  expect(store.getState().darkMode).toBe(true);
+
+  store.dispatch({
+    type: "LOGIN",
+    payload: {
+      name: "Rein op 't Land",
+      email: "rein@codaisseur.com",
+    },
+  });
+
+  expect(store.getState().darkMode).toBe(true);
+
+  store.dispatch({
+    type: "LOGOUT",
+  });
+
+  expect(store.getState().darkMode).toBe(true);
+});

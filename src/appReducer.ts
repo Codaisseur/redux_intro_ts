@@ -6,15 +6,18 @@ type User = {
 
 type AppState = {
   user: null | User;
+  darkMode: boolean;
 };
 
 type Action =
   | { type: "LOGOUT" }
   | { type: "LOGIN"; payload: User }
-  | { type: "UPDATE_LOGGEDIN_USER"; payload: Partial<User> };
+  | { type: "UPDATE_LOGGEDIN_USER"; payload: Partial<User> }
+  | { type: "TOGGLE_DARK_MODE" };
 
 const initialState: AppState = {
   user: null,
+  darkMode: false,
 };
 
 export function appReducer(state = initialState, action: Action) {
@@ -48,6 +51,9 @@ export function appReducer(state = initialState, action: Action) {
           ...action.payload,
         },
       };
+    }
+    case "TOGGLE_DARK_MODE": {
+      return { ...state, darkMode: !state.darkMode };
     }
     default: {
       return state;

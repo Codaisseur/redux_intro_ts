@@ -6,3 +6,4 @@
 6. Added tests for myCountingReducer
 7. Added a new "MULTIPLY" action type, TDD-style
 8. Added a new "RESET" action type, TDD-style
+9. Object experiments..

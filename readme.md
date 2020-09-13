@@ -11,3 +11,4 @@
 11. Added a `darkMode` property to the app state, and an action to toggle it, TDD-style
 12. Added an albums reducer with an accompanying test suite
 13. Addded an action that removes a single album by title, TDD-style
+14. Addded an action that removes all albums of a certain genre, TDD-style

@@ -76,3 +76,51 @@ test("Removing an album possible", () => {
     },
   ]);
 });
+
+test("Removing albums by genre", () => {
+  const store = createStore(albumsReducer);
+
+  const roadToIthaca = {
+    title: "The Road to Ithaca",
+    artist: "Shai Maestro",
+    genre: "jazz",
+  };
+  const landmarks = {
+    title: "Landmarks",
+    artist: "Brian Blade & The Fellowship Band",
+    genre: "jazz",
+  };
+  const teardrops = {
+    title: "Teardrops",
+    artist: "Neil Frances",
+    genre: "pop",
+  };
+
+  for (const album of [roadToIthaca, landmarks, teardrops]) {
+    store.dispatch({
+      type: "ADD_ALBUM",
+      payload: album,
+    });
+  }
+
+  store.dispatch({
+    type: "REMOVE_ALBUMS_BY_GENRE",
+    payload: "jaxx",
+  });
+
+  expect(store.getState()).toEqual([roadToIthaca, landmarks, teardrops]);
+
+  store.dispatch({
+    type: "REMOVE_ALBUMS_BY_GENRE",
+    payload: "jazz",
+  });
+
+  expect(store.getState()).toEqual([teardrops]);
+
+  store.dispatch({
+    type: "REMOVE_ALBUMS_BY_GENRE",
+    payload: "pop",
+  });
+
+  expect(store.getState()).toEqual([]);
+});

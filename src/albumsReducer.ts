@@ -7,7 +7,8 @@ type Album = {
 
 type Action =
   | { type: "ADD_ALBUM"; payload: Album }
-  | { type: "REMOVE_ALBUM"; payload: string };
+  | { type: "REMOVE_ALBUM"; payload: string }
+  | { type: "REMOVE_ALBUMS_BY_GENRE"; payload: string };
 
 const initialState: Album[] = [];
 
@@ -20,6 +21,11 @@ export function albumsReducer(state = initialState, action: Action) {
     case "REMOVE_ALBUM": {
       return state.filter((album) => {
         return album.title !== action.payload;
+      });
+    }
+    case "REMOVE_ALBUMS_BY_GENRE": {
+      return state.filter((album) => {
+        return album.genre !== action.payload;
       });
     }
     default: {

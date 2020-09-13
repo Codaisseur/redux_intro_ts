@@ -24,4 +24,9 @@ store.dispatch({
   payload: 5,
 });
 
+store.dispatch({
+  type: "SUBTRACT",
+  payload: 20,
+});
+
 console.log("final state:", store.getState());

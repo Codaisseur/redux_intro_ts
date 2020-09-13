@@ -9,3 +9,4 @@
 9. Object experiments..
 10. Added an "app reducer" and some tests for it
 11. Added a `darkMode` property to the app state, and an action to toggle it, TDD-style
+12. Added an albums reducer with an accompanying test suite
